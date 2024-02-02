@@ -1,0 +1,29 @@
+class LisNode():
+    def __init__(self,val=0,next=None):
+        self.val=val
+        self.next=next
+def is_paindrome(head):
+    def reversed_list(node):
+        prev=None
+        while node:
+            temp=node.next
+            node.next=prev
+            prev=node
+            node=temp
+        return temp
+    
+    slow=temp=head
+    while fast and fast.next:
+        slow=slow.next
+        fast=fast.next.next
+    second_reversed_list=reversed_list(head)
+    while second_reverse_list:
+        if head.val != second_reversed_list.val:
+            return False
+        head=head.next
+        second_reversed_list=second_reversd_list.next
+    return True
+head= ListNode(1,ListNode(2,ListNode(3)))
+result=is_palindrome(head)
+print(result)
+    
